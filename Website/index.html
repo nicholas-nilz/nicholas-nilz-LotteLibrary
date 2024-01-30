@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+    <title>Lotte Library</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <div class="logo">
+                <img id="logoImg" src="images/logo.png" alt="Logo" style="width: 125px;">
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav ms-auto">
+                    <li data-menuanchor="home" class="nav-item active">
+                        <a class="nav-link" href="#home">
+                            <i class="bi bi-house"></i> Home
+                        </a>
+                    </li>
+                    <li data-menuanchor="books" class="nav-item">
+                        <a class="nav-link" href="#books">
+                            <i class="bi bi-book"></i></i> Library
+                        </a>
+                    </li>
+                    <li data-menuanchor="stats" class="nav-item">
+                        <a class="nav-link" href="#stats">
+                            <i class="bi bi-bar-chart"></i> Stats
+                        </a>
+                    </li>
+                    <li data-menuanchor="inventory" class="nav-item">
+                        <a class="nav-link" href="#inventory">
+                            <i class="bi bi-table"></i> Inventory
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div id="fullpage">
+        <div class="section" data-anchor="home">
+            <div class="home-container">
+                <div class="row align-items-center">
+                    <div class="col-md-7">
+                        <h1>Welcome to Lotte Library!</h1>
+                        <p>Browse our newly arrivals or find a book of your choice and immerse yourself in becoming a
+                            bookworm.</p>
+                        <div class="container-fluid">
+                            <div class="mt-3 row d-flex justify-content-center">
+                                <div class="col-lg-1 col-md-8"></div>
+                                <div class="col-lg-3 col-md-8 mb-3">
+                                    <div class="row">
+                                        <div class="col-2 justify-content-center my-auto">
+                                            <i class="bi bi-journal"></i>
+                                        </div>
+                                        <div class="col-10">
+                                            <small><b>There is no friend</b><br>as loyal as a
+                                                book</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-8 mb-3">
+                                    <div class="row">
+                                        <div class="col-2 justify-content-center my-auto">
+                                            <i class="bi bi-book"></i>
+                                        </div>
+                                        <div class="col-10">
+                                            <small><b>Wide Collection</b><br>Explore our extensive collection of
+                                                books</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-8 mb-3">
+                                    <div class="row">
+                                        <div class="col-2 justify-content-center my-auto">
+                                            <i class="bi bi-bookmark"></i>
+                                        </div>
+                                        <div class="col-10">
+                                            <small><b>Recommendations</b><br>Discover personalized book
+                                                recommendations</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5 text-center">
+                        <img src="images/book.jpg" class="img-fluid book-img" alt="book" style="width: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" data-anchor="books">
+            <div id="cardCarousel" class="carousel slide card-container" data-bs-ride="carousel">
+                <div class="book-container">
+                    <h3 class="text-center">Lotte's Featured Books</h3>
+                    <div id="search" class="search-bar">
+                        <input type="text" placeholder="Search for books" id="searchInput">
+                    </div>
+                    <div class="carousel-inner" id="searchResults">
+                        <div class="carousel-item active">
+                            <div class="container mb-3">
+                                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
+                                    <!-- Card 1 -->
+                                    <div class="col">
+                                        <div class="card h-100 m-3" id="item1" data-author="kathleen glasgow">
+                                            <a href="#"
+                                                onclick="showBookDescription('Girl in Pieces by Kathleen Glasgow', 'A heartbreaking, triumphant, funny and hopeful story of one girl\'s battle with self harm. Charlie Davis is in pieces. At seventeen, she\'s already lost more than most people lose in a lifetime. But she\'s learned how to forget it through cutting; the pain washes out the sorrow until there is nothing but calm. After her suicide attempt, Charlie is placed in Creeley Center, a group home for girls who self-harm. Diagnosed with non-suicidal self-injury, impulse-control disorder, and post-traumatic stress disorder, Charlie is also suffering from selective mutism. Her physical and emotional traumas weigh so heavily on her that she cannot speak. Being at Creeley feels safe to Charlie, and after a week of individual and group therapy, she begins to make progress, using her voice and her art to express herself. Although that progress is cut short, however, when she is discharged due to the lack of insurance.\nReviews: ★★★★★\nGenre: Fiction')"
+                                                data-bs-toggle="modal" data-bs-target="#bookDescriptionModal">
+                                                <img src="images/girls-in-pieces.jpg" class="card-img-top" alt="book1">
+                                            </a>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Girl in Pieces</h5>
+                                                <a href="#" class="btn btn-primary mt-2">Reserve</a>
+                                            </div>
+                                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <i class="bi bi-person"></i> Kathleen Glasgow
+                                                </div>
+                                                <button class="border-0 float-end" onclick="bookmarkFunction()">
+                                                    <i class="bi bi-bookmark" title="Add to bookmarks" id="mark1"
+                                                        data-bs-toggle="tooltip"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Card 2 -->
+                                    <div class="col">
+                                        <div class="card h-100 m-3" id="item2" data-author="kathleen glasgow">
+                                            <a href="#"
+                                                onclick="showBookDescription('How to Make Friends With the Dark by Kathleen Glasgow', 'In How to Make Friends with the Dark, 16-year-old Tiger learns that her mother is dead, and almost equally upsetting, she can\'t even go somewhere familiar to stay while she figures out how to adjust to being an orphan; with no known father or other relatives, she is relegated to the legal responsibility of the state of Arizona and uprooted from the life and the people she knew. Though she is given a grace period of one night in her home, she is then taken to a series of foster homes. I think most readers will find the immediate removal of any agency from the teenager just as jarring as Tiger herself does. She is thrust out of the push and pull of normal adolescent rebellion with her mother into a situation that requires great maturity to navigate, while simultaneously losing the ability to make decisions or advocate for herself. Would she be able to make it out with her decisions?\nReviews: ★★★★★\nGenre: Fiction')"
+                                                data-bs-toggle="modal" data-bs-target="#bookDescriptionModal">
+                                                <img src="images/how-to.jpg" class="card-img-top" alt="book2">
+                                            </a>
+                                            <div class="card-body">
+                                                <h5 class="card-title">How to Make Friends With the Dark</h5>
+                                                <a href="#" class="btn btn-primary mt-2">Reserve</a>
+                                            </div>
+                                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <i class="bi bi-person"></i> Kathleen Glasgow
+                                                </div>
+                                                <button id="card2" class="border-0 float-end"
+                                                    onclick="bookmarkFunction()">
+                                                    <i class="bi bi-bookmark" title="Add to bookmarks" id="mark2"
+                                                        data-bs-toggle="tooltip"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Card 3 -->
+                                    <div class="col">
+                                        <div class="card h-100 m-3" id="item3" data-author="kathleen glasgow">
+                                            <a href="#"
+                                                onclick="showBookDescription('You Be Home Now by Kathleen Glasgow', 'For all of Emory\'s life she\'s been told who she is. In town she\'s the rich one--the great-great-granddaughter of the mill\'s founder. At school she\'s hot Maddie Ward\'s younger sister. And at home, she\'s the good one, her stoner older brother Joey\'s babysitter. Everything was turned on its head, though, when she and Joey were in the car accident that killed Candy MontClaire. The car accident that revealed just how bad Joey\'s drug habit was. Four months later, Emmy\'s junior year is starting, Joey is home from rehab, and the entire town of Mill Haven is still reeling from the accident. Everyone\'s telling Emmy who she is, but so much has changed, how can she be the same person? Or was she ever that person at all? Mill Haven wants everyone to live one story, but Emmy\'s beginning to see that people are more than they appear.\nReviews: ★★★★★\nGenre: Fiction')"
+                                                data-bs-toggle="modal" data-bs-target="#bookDescriptionModal">
+                                                <img src="images/you-be-home-now.jpg" class="card-img-top" alt="book3">
+                                            </a>
+                                            <div class="card-body">
+                                                <h5 class="card-title">You'd Be Home Now</h5>
+                                                <a href="#" class="btn btn-primary mt-2">Reserve</a>
+                                            </div>
+                                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <i class="bi bi-person"></i> Kathleen Glasgow
+                                                </div>
+                                                <button id="card3" class="border-0 float-end"
+                                                    onclick="bookmarkFunction()">
+                                                    <i class="bi bi-bookmark" title="Add to bookmarks" id="mark3"
+                                                        data-bs-toggle="tooltip"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Card 4 -->
+                                    <div class="col">
+                                        <div class="card h-100 m-3" id="item4" data-author="margaret hillert">
+                                            <a href="#"
+                                                onclick="showBookDescription('Little Red Riding Hood by Margaret Hillert', 'This story follows Little Red Riding Hood into the forest and along the wooded path to deliver a basket of food to her sick grandmother. But she encounters a Big Bad Wolf with an empty stomach and a cunning mind, who has other plans for Little Red Riding Hood and her grandmother. Would she and her grandma be able to she survive without turning into the Wolf\'s lunch?\nReviews: ★★★★\nGenre: FairyTale')"
+                                                data-bs-toggle="modal" data-bs-target="#bookDescriptionModal">
+                                                <img src="images/little-red-riding-hood.jpg" class="card-img-top"
+                                                    alt="book4">
+                                            </a>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Little Red Riding Hood</h5>
+                                                <a href="#" class="btn btn-primary mt-2">Reserve</a>
+                                            </div>
+                                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <i class="bi bi-person"></i> Margaret Hillert
+                                                </div>
+                                                <button id="card4" class="border-0 float-end"
+                                                    onclick="bookmarkFunction()">
+                                                    <i class="bi bi-bookmark" title="Add to bookmarks" id="mark4"
+                                                        data-bs-toggle="tooltip"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="container mb-3">
+                                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
+                                    <!-- Card 5 -->
+                                    <div class="col">
+                                        <div class="card h-100 m-3" id="item5" data-author="margaret hillert">
+                                            <a href="#"
+                                                onclick="showBookDescription('Three Little Pigs by Margaret Hillert', 'The Three Little Pigs is a fable about three pigs who build their houses of different materials. A Big Bad Wolf blows down the first two pigs\' houses which are made of straw and sticks respectively, but is unable to destroy the third pig\'s house that is made of bricks. Hence, the three pigs are saved from the Big Bad Wolf.\nReviews: ★★★★\nGenre: FairyTale')"
+                                                data-bs-toggle="modal" data-bs-target="#bookDescriptionModal">
+                                                <img src="images/three-little-pigs.jpg" class="card-img-top"
+                                                    alt="book5">
+                                            </a>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Three Little Pigs</h5>
+                                                <a href="#" class="btn btn-primary mt-2">Reserve</a>
+                                            </div>
+                                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <i class="bi bi-person"></i> Margaret Hillert
+                                                </div>
+                                                <button id="card5" class="border-0 float-end"
+                                                    onclick="bookmarkFunction()">
+                                                    <i class="bi bi-bookmark" title="Add to bookmarks" id="mark5"
+                                                        data-bs-toggle="tooltip"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Card 6 -->
+                                    <div class="col">
+                                        <div class="card h-100 m-3" id="item6" data-author="r.j palacio">
+                                            <a href="#"
+                                                onclick="showBookDescription('Wonder by R.J Palacio', 'Born with facial differences that, up until now, have prevented him from going to a mainstream school, Auggie Pullman becomes the most unlikely of heroes when he enters the local fifth grade. As his family, his new classmates, and the larger community all struggle to discover their compassion and acceptance, Auggie\'s extraordinary journey will unite them and prove you can\'t blend in when you were born to stand out.\nReviews: ★★★★★\nGenre: Fiction')"
+                                                data-bs-toggle="modal" data-bs-target="#bookDescriptionModal">
+                                                <img src="images/wonder.jpg" class="card-img-top" alt="book6">
+                                            </a>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Wonder</h5>
+                                                <a href="#" class="btn btn-primary mt-2">Reserve</a>
+                                            </div>
+                                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <i class="bi bi-person"></i> R.J Palacio
+                                                </div>
+                                                <button id="card6" class="border-0 float-end"
+                                                    onclick="bookmarkFunction()">
+                                                    <i class="bi bi-bookmark" title="Add to bookmarks" id="mark6"
+                                                        data-bs-toggle="tooltip"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Card 7 -->
+                                    <div class="col">
+                                        <div class="card h-100 m-3" id="item7" data-author="john boyne">
+                                            <a href="#"
+                                                onclick="showBookDescription('The Boy In The Striped Pyjamas by John Boyne', 'During World War II, 8-year-old Bruno (Asa Butterfield) and his family leaves Berlin to take up residence near the concentration camp where his father (David Thewlis) has just become commandant. Unhappy and lonely, he wanders out behind his house one day and finds Shmuel (Jack Scanlon), a Jewish boy of his age. Though the barbed-wire fence of the camp separates them, the boys begin a forbidden friendship, and oblivious to the real world nature of their surroundings that is around them.\nReviews: ★★★★★\nGenre: Historical Drama')"
+                                                data-bs-toggle="modal" data-bs-target="#bookDescriptionModal">
+                                                <img src="images/tbitsp.jpg" class="card-img-top" alt="book7">
+                                            </a>
+                                            <div class="card-body">
+                                                <h5 class="card-title">The Boy in The Striped Pyjamas</h5>
+                                                <a href="#" class="btn btn-primary mt-2">Reserve</a>
+                                            </div>
+                                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <i class="bi bi-person"></i> John Boyne
+                                                </div>
+                                                <button id="card7" class="border-0 float-end"
+                                                    onclick="bookmarkFunction()">
+                                                    <i class="bi bi-bookmark" title="Add to bookmarks" id="mark7"
+                                                        data-bs-toggle="tooltip"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Card 8 -->
+                                    <div class="col">
+                                        <div class="card h-100 m-3" id="item8" data-author="rueda claudia">
+                                            <a href="#"
+                                                onclick="showBookDescription('Redlocks and The Three Bears by Rueda Claudia', 'The red cloak–clad child at the Three Bears’ door isn’t the usual suspect: it’s Little Red, escaped from “the book next door” to ask for help. Narrator Baby Bear persuades his folks to let her stay (“Not sure if that’s how the story goes, they said, but... Ok”), and Red proceeds to make herself at home—devouring her young host’s porridge and breaking the smallest chair—just like a certain other protagonist. When the wolf from Little Red’s tale appears and sends everyone fleeing to a book occupied by the Three Little Pigs, Baby Bear discovers that the villain is ready to reform (“Nobody likes to have wolves in their books,” the wolf sobs) and successfully forges a détente between the wolf and Red, sending them back to their own story with a recipe for porridge with them.\nReviews: ★★★\nGenre: FairyTale')"
+                                                data-bs-toggle="modal" data-bs-target="#bookDescriptionModal">
+                                                <img src="images/redlocks.jpg" class="card-img-top" alt="book8">
+                                            </a>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Redlocks and The Three Bears</h5>
+                                                <a href="#" class="btn btn-primary mt-2">Reserve</a>
+                                            </div>
+                                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <i class="bi bi-person"></i> Rueda Claudia
+                                                </div>
+                                                <button id="card8" class="border-0 float-end"
+                                                    onclick="bookmarkFunction()">
+                                                    <i class="bi bi-bookmark" title="Add to bookmarks" id="mark8"
+                                                        data-bs-toggle="tooltip"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="container mb-3">
+                                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
+                                    <!-- Card 9 -->
+                                    <div class="col">
+                                        <div class="card h-100 m-3" id="item9" data-author="dustin thao">
+                                            <a href="#"
+                                                onclick="showBookDescription('You\'ve Reached Sam by Dustin Thao', 'You\'ve Reached Sam is an emotional read about trying to make sense of life after bereavement and remembering loved ones who have passed away. Seventeen-year-old Julie\'s whole world is upended after the death of her boyfriend, Sam. Wanting to hear his voice again, she calls his phone and from beyond the grave, he answers. For some reason, both have this special connection even after death, but both Sam and Julie are aware that their time together is running out, and the phone calls won\'t last forever.\nReviews: ★★★★\nGenre: Fiction')"
+                                                data-bs-toggle="modal" data-bs-target="#bookDescriptionModal">
+                                                <img src="images/sam.jpg" class="card-img-top" alt="book9">
+                                            </a>
+                                            <div class="card-body">
+                                                <h5 class="card-title">You've Reached Sam</h5>
+                                                <a href="#" class="btn btn-primary mt-2">Reserve</a>
+                                            </div>
+                                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <i class="bi bi-person"></i> Dustin Thao
+                                                </div>
+                                                <button id="card5" class="border-0 float-end"
+                                                    onclick="bookmarkFunction()">
+                                                    <i class="bi bi-bookmark" title="Add to bookmarks" id="mark5"
+                                                        data-bs-toggle="tooltip"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Card 10 -->
+                                    <div class="col">
+                                        <div class="card h-100 m-3" id="item10" data-author="mariko turk">
+                                            <a href="#"
+                                                onclick="showBookDescription('The Other Side of Perfect by Mariko Turk', 'An injured teenage ballerina falls in love while reexamining the cultural and racial context of her beloved art. The decade Alina spent honing her ballet artistry is demolished in a split second when her leg is shattered in an accident. Struggling with depression, anxiety, and jealousy, she hides away from the world.\nReviews: ★★★★\nGenre: Fiction (Young-Adult)')"
+                                                data-bs-toggle="modal" data-bs-target="#bookDescriptionModal">
+                                                <img src="images/the-other-side-of-perfect.jpg" class="card-img-top"
+                                                    alt="book10">
+                                            </a>
+                                            <div class="card-body">
+                                                <h5 class="card-title">The Other Side of Perfect</h5>
+                                                <a href="#" class="btn btn-primary mt-2">Reserve</a>
+                                            </div>
+                                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <i class="bi bi-person"></i> Mariko Turk
+                                                </div>
+                                                <button id="card6" class="border-0 float-end"
+                                                    onclick="bookmarkFunction()">
+                                                    <i class="bi bi-bookmark" title="Add to bookmarks" id="mark6"
+                                                        data-bs-toggle="tooltip"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Card 11 -->
+                                    <div class="col">
+                                        <div class="card h-100 m-3" id="item11" data-author="richard h. thaler">
+                                            <a href="#"
+                                                onclick="showBookDescription('Nudge by Richard H. Thaler', 'The book talks about how people always go for the path of least resistance when it comes to making decisions. In order to help lazy decision-makers pick the right choice, it is important to create nudges that help make them decisions that are beneficial. The book is co-written by two authors named, Richard H. Thaler and Cass R. Sunstein. The book starts by explaining the reasons for wrong decisions we make in everyday life. To show how we can be encouraged, with just a slight nudge or two, to make better decisions. We tend to react to a particular option differently depending on how it is presented to us. These discoveries inspired by nudging, the idea that people\'s decisions and behaviors should be influenced in predictable, non-coercive ways by making small changes to the choice architecture. Reviews: ★★★\nGenre: Non-Fiction')"
+                                                data-bs-toggle="modal" data-bs-target="#bookDescriptionModal">
+                                                <img src="images/nudge.jpg" class="card-img-top" alt="book11">
+                                            </a>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Nudge</h5>
+                                                <a href="#" class="btn btn-primary mt-2">Reserve</a>
+                                            </div>
+                                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <i class="bi bi-person"></i> Richard H. Thaler
+                                                </div>
+                                                <button id="card7" class="border-0 float-end"
+                                                    onclick="bookmarkFunction()">
+                                                    <i class="bi bi-bookmark" title="Add to bookmarks" id="mark7"
+                                                        data-bs-toggle="tooltip"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card 12 -->
+                                    <div class="col">
+                                        <div class="card h-100 m-3" id="item12" data-author="atul gawande">
+                                            <a href="#"
+                                                onclick="showBookDescription('Being Mortal by Atul Gawande', 'Being Mortal: Medicine and What Matters in the End is a 2014 non-fiction book by American surgeon Atul Gawande. The book addresses end-of-life care, hospice care, and also contains Gawande\'s reflections and personal stories. He suggests that medical care should focus on well-being rather than survival.\nReviews: ★★★★\nGenre: Self-Help Book')"
+                                                data-bs-toggle="modal" data-bs-target="#bookDescriptionModal">
+                                                <img src="images/being-mortal.jpg" class="card-img-top" alt="book12">
+                                            </a>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Being Mortal</h5>
+                                                <a href="#" class="btn btn-primary mt-2">Reserve</a>
+                                            </div>
+                                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <i class="bi bi-person"></i> Atul Gawande
+                                                </div>
+                                                <button id="card8" class="border-0 float-end"
+                                                    onclick="bookmarkFunction()">
+                                                    <i class="bi bi-bookmark" title="Add to bookmarks" id="mark8"
+                                                        data-bs-toggle="tooltip"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="section" data-anchor="stats">
+            <div class="chart-container">
+                <h3 class="text-center">Top 5 Favourite Genres to read in Lotte Library</h3>
+                <canvas id="libraryChart" height="100px"></canvas>
+            </div>
+        </div>
+
+        <div class="section" data-anchor="inventory">
+            <div class="inventory-container">
+                <h2 class="inventory-h2">Lotte's Inventory</h2>
+                <table id="table" class="display" width="80%"></table>
+            </div>
+        </div>
+
+        <div class="section" data-anchor="footer">
+            <footer>
+                <div id="footer-section" class="container">
+                    <div class="row">
+                        <h2>Have a question? Contact Us!</h2>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/yourFacebookProfile" target="_blank"
+                                class="contact-icon"><i class="bi bi-facebook"></i>@LotteLibrary</a>
+                            <a href="https://www.instagram.com/yourInstagramProfile" target="_blank"
+                                class="contact-icon"><i class="bi bi-instagram"></i>@LotteLibrary</a>
+                            <a href="mailto:your@email.com" class="contact-icon"><i
+                                    class="bi bi-envelope"></i>lottelibrary@gmail.com</a>
+                        </div>
+                        <div class="location">
+                            <h3>Our Location</h3>
+                            <div id="map">
+                            </div>
+                            <div class="map-container">
+                                <img src="images/singapore.png" class="img-fluid map-img" alt="sg">
+                            </div>
+                        </div>
+                        <br><br>
+                        <ul>
+                            <a href="#home">Home</a>
+                            <a href="#books">Library</a>
+                            <a href="#stats">Stats</a>
+                            <a href="#inventory">Inventory</a>
+                            <br>
+                            <p>&copy; 2024 Lotte Library. All rights reserved.</p>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <div class="modal fade" id="bookDescriptionModal" tabindex="-1" aria-labelledby="bookDescriptionModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bookDescriptionModalLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/scrolloverflow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.extensions.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    </link>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

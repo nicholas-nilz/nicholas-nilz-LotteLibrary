@@ -1,0 +1,174 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    box-sizing: border-box;
+    color: #333333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 15px;
+    background-color: #efefef;
+}
+
+/* Navbar Section */
+.navbar {
+    background-color: #efefef;
+    color: #333
+}
+
+.navbar i {
+    margin-right: 10px;
+    color: #333333;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+/* Home Section */
+.home-container h1,
+.home-container p,
+.home-container .btn.btn-primary {
+    margin-left: 100px;
+}
+
+.home-container {
+    padding-top: 100px;
+    margin-top: 50px;
+}
+
+.book-img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.book-img:hover {
+    transform: scale(1.1);
+}
+
+/* Books Section */
+.book-container {
+    padding-top: 25px;
+    height: 300px;
+}
+
+.card-body {
+    height: 100px;
+}
+
+.card-img-top {
+    height: 220px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card-img-top:hover {
+    transform: scale(1.1);
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-left: 250px;
+    width: 800px;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 5px;
+}
+
+/* Stats Section */
+.chart-container {
+    padding-top: 100px;
+    width: 80%;
+    margin-left: 100px;
+}
+
+/* Inventory Section */
+.inventory-container {
+    padding-top: 25px;
+}
+
+#table th,
+#table td {
+    padding: 2px;
+    text-align: left;
+    border-bottom: 1px solid #c36ba5;
+}
+
+#table th {
+    background-color: #df8cdb;
+}
+
+#table tbody tr:hover {
+    background-color: #afacac;
+}
+
+.inventory-h2 {
+    text-align: center;
+}
+
+/* Footer Section */
+#footer-section {
+    text-align: center;
+    padding-top: 100px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.contact-icon {
+    margin-right: 10px;
+    color: #333;
+    font-size: 18px;
+}
+
+.location {
+    margin-top: 20px;
+}
+
+.copyright {
+    margin-top: 20px;
+}
+
+.map-container {
+    position: relative;
+    width: 400px;
+    margin-left: 350px
+}
+
+.poly-marker {
+    width: 15px;
+    height: 15px;
+    background-color: pink;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    z-index: 2;
+}
+
+/* Logo animation */
+.logo img:hover {
+    animation: spin 1s ease-in-out;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
